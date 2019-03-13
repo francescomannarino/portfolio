@@ -1,9 +1,16 @@
 {
 	"title" : "Skills",
 	"skills" : {
-		"Sketch" : "90",
-		"Adobe XD" : "80",
-		"Illustrator" : "65",
-		"Photoshop" : "97"
+		"Java" : "80",
+		"Javascript" : "80",
+		"jQuery" : "65",
+		"AngularJS" : "90",
+		"Angular" : "50",
+		"HTML5" : "75",
+		"CSS" : "65",
+		"Python" : "45",
+		"Go" : "55",
+		"NodeJS" : "65",
+		"GIT" : "90"
 	}
 }
