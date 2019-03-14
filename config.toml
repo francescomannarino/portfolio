@@ -1,4 +1,5 @@
-baseURL = "https://francescomannarino.dev"
+baseURL = "https://francescomannarino.dev/"
 languageCode = "it-it"
 title = "Francesco Mannarino"
 theme = "uilite"
+disableKinds = ['taxonomy', 'taxonomyTerm']
