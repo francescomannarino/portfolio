@@ -1,7 +1,23 @@
 {{ $config := .Site.Data.config }}
 
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="it-IT">
+
+
+<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyDo6OE5JUkk4_QTtUkqYtOEB0q8FBBTahM",
+		authDomain: "my-portfolio-9f235.firebaseapp.com",
+		databaseURL: "https://my-portfolio-9f235.firebaseio.com",
+		projectId: "my-portfolio-9f235",
+		storageBucket: "my-portfolio-9f235.appspot.com",
+		messagingSenderId: "1040671794920"
+	};
+	firebase.initializeApp(config);
+</script>
+
 <head>
 	<title>
 			{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
@@ -26,6 +42,8 @@
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+
+	<link rel="icon" href="https://francescomannarino.dev/favicon.ico" type="image/x-icon">
 
 	<!-- Meta tags -->
 	<meta name="author" content="{{ $config.author }}">

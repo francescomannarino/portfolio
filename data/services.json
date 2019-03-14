@@ -1,15 +1,10 @@
 {
-	"title" : "Services",
+	"title" : "Lifestyle",
 	"services" : [
 		{
-			"icon" : "pencil-ruler",
-			"title" : "Logo Design",
-			"description" : "Nunc sapien nisi, maximus eleifend hendrerit sit amet, rutrum vel diam. Duis quam nibh, tincidunt eget nunc nec, suscipit pretium dolor. "
-		},
-		{
-			"icon" : "pen-nib",
-			"title" : "Graphics Design",
-			"description" : "Nunc sapien nisi, maximus eleifend hendrerit sit amet, rutrum vel diam. Duis quam nibh, tincidunt eget nunc nec, suscipit pretium dolor. "
+			"icon" : "desktop",
+			"title" : "IT Enthusiast",
+			"description" : "Our, long, journey never ends."
 		}
 	]
 }
