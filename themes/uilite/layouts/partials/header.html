@@ -48,5 +48,27 @@
 	
 	{{ partial "seo_schema.html" . }}
 
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+	<script>
+		window.addEventListener("load", function(){
+			window.cookieconsent.initialise({
+				"palette": {
+					"popup": {
+						"background": "#216942",
+						"text": "#b2d192"
+					},
+					"button": {
+						"background": "#afed71"
+					}
+				},
+				"theme": "edgeless",
+				"position": "bottom-right",
+				"content": {
+					"href": "https://www.byteblog.it/cookie-informativa-estesa/"
+				}
+			})});
+	</script>
+
 </head>
 <body class="clearfix">
