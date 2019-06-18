@@ -7,9 +7,14 @@
 			"description" : "Collaborator | Web Developer"
 		},
 		{
-			"timeperiod" : "Dec 2014 - Present",
+			"timeperiod" : "Dec 2014 - Apr 2019",
 			"company" : "Fincons Group S.p.A.",
 			"description" : "Full-stack Developer | Team Leader"
+		},
+		{
+			"timeperiod" : "May 2019 - Present",
+			"company" : "Engineering Ingegneria Informatica S.p.A.",
+			"description" : "Solution Developer"
 		}
 	]
 }
