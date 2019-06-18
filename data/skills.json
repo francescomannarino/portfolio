@@ -5,12 +5,13 @@
 		"Javascript" : "80",
 		"jQuery" : "65",
 		"AngularJS" : "90",
-		"Angular" : "50",
+		"Angular" : "70",
 		"HTML5" : "75",
 		"CSS" : "65",
 		"Python" : "45",
 		"Go" : "55",
 		"NodeJS" : "65",
-		"GIT" : "90"
+		"GIT" : "90",
+		"Typescript" : "65"
 	}
 }
