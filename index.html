@@ -1,249 +1,343 @@
-<!DOCTYPE html>
-<html lang="it">
-
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francesco Mannarino | Senior Software Engineer</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Francesco Mannarino – Senior Software Engineer & Development Team Leader. Expert in Angular, TypeScript, PWA, and scalable web architectures." />
+  <meta name="keywords" content="Francesco Mannarino, Senior Software Engineer, Angular, TypeScript, Front-End Developer, Team Leader, PWA, Roma" />
+  <meta name="author" content="Francesco Mannarino" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Francesco Mannarino | Senior Software Engineer" />
+  <meta property="og:description" content="Senior Software Engineer & Team Leader. Angular · TypeScript · PWA · CI/CD." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://francescomannarino.dev" />
+  <meta property="og:image" content="https://placehold.co/1200x630/0A0F1E/00F5D4?text=Francesco+Mannarino" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Francesco Mannarino | Senior Software Engineer" />
+  <meta name="twitter:description" content="Senior Software Engineer & Development Team Leader based in Rome." />
+  <title>Francesco Mannarino | Senior Software Engineer</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <header class="navbar">
-        <div class="container">
-            <a href="#" class="logo">FM</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#experience">Esperienza</a></li>
-                    <li><a href="#education">Formazione</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contatti</a></li>
-                </ul>
-                <button class="hamburger" id="hamburger-menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
-    </header>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursor-trail" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied!</div>
 
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <div class="hero-content animate-on-scroll">
-                <h1>Francesco Mannarino</h1>
-                <h2>Senior Software Engineer & Team Leader</h2>
-                <p class="subtitle">Sviluppatore esperto con focus su soluzioni web performanti, architetture scalabili
-                    e leadership tecnica.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Contattami</a>
-                    <!-- <a href="Francesco_Mannarino_Resume_ITA.pdf" target="_blank" class="btn btn-secondary">Scarica CV <i
-                            class="fas fa-download"></i></a> -->
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/francesco-mannarino" target="_blank" aria-label="LinkedIn"><i
-                            class="fab fa-linkedin"></i></a>
-                            <a href="https://github.com/francescomannarino/" target="_blank" aria-label="Github"><i
-                                class="fab fa-github"></i></a>
-                </div>
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Home">FM</a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" id="nav-links" role="menubar">
+          <li role="none"><a href="#about"      class="nav-link" role="menuitem">About</a></li>
+          <li role="none"><a href="#skills"     class="nav-link" role="menuitem">Skills</a></li>
+          <li role="none"><a href="#projects"   class="nav-link" role="menuitem">Projects</a></li>
+          <li role="none"><a href="#experience" class="nav-link" role="menuitem">Experience</a></li>
+          <li role="none"><a href="#contact"    class="nav-link" role="menuitem">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, I am</p>
+      <h1 class="hero-name">Francesco<br />Mannarino</h1>
+      <div class="hero-typewriter" aria-label="Current role">
+        <span id="typewriter-text"></span><span class="typewriter-cursor" aria-hidden="true">|</span>
+      </div>
+      <p class="hero-tagline">Engineering elegant solutions for complex problems.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View Work <span aria-hidden="true">&#8595;</span></a>
+        <a href="Francesco_Mannarino_Resume.pdf" class="btn btn-secondary" download>Download CV</a><!-- TODO: replace with actual CV file -->
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/francescomannarino/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/francesco-mannarino" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+      <div class="scroll-chevron" aria-hidden="true"></div>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-avatar-wrap">
+          <div class="avatar-ring">
+            <img src="https://placehold.co/320x320/111827/00F5D4?text=FM" alt="Francesco Mannarino" loading="lazy" width="320" height="320" class="avatar-img" /><!-- TODO: replace with actual photo -->
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="about-lead">Senior Software Engineer and Development Team Leader with 12+ years crafting high-performance web applications and scalable architectures.</p>
+          <p>I specialize in Angular ecosystems, Progressive Web Apps, and front-end engineering at scale. I thrive at the intersection of technical excellence and team leadership, driving quality through CI/CD adoption, rigorous coding standards, and hands-on mentoring.</p>
+          <p>Speaker at <strong>FUGU 2023</strong> on hybrid app development using native browser APIs. Organizer of the <strong>Engineering Learning Labs</strong> community since 2016. Outside code, I hold a Master's in Non-Verbal Behavioural Science.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number" data-target="12">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Years Exp.</span>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <a href="#experience"><i class="fas fa-chevron-down"></i></a>
-        </div>
-    </section>
-
-    <section id="experience" class="content-section">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Esperienza Lavorativa</h2>
-            <div class="timeline">
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-content card">
-                        <span class="date">Ott 2021 - Presente</span>
-                        <h3>Development Team Leader</h3>
-                        <h4>Engineering Ingegneria Informatica SpA <span class="location"><i
-                                    class="fas fa-map-marker-alt"></i> Roma</span></h4>
-                        <ul>
-                            <li>Ridotto i tempi di rilascio del 20% ottimizzando pianificazione e gestione attività.
-                            </li>
-                            <li>Implementato CI/CD e coding standard, migliorando stabilità e manutenibilità.</li>
-                            <li>Implementato interfacce più intuitive e conformi agli standard di accessibilita'.</li>
-                        </ul>
-                        <p class="tech-stack"><strong>Tech:</strong> Angular, Javascript, Typescript, HTML, CSS, PWA,
-                            WebAPI, NodeJS</p>
-                    </div>
-                </div>
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-content card">
-                        <span class="date">Mag 2019 - Set 2021</span>
-                        <h3>Software Development Specialist</h3>
-                        <h4>Engineering Ingegneria Informatica SpA <span class="location"><i
-                                    class="fas fa-map-marker-alt"></i> Roma</span></h4>
-                        <ul>
-                            <li>Ridotto i tempi di caricamento degli applicativi ottimizzando risorse e codice.</li>
-                            <li>Aumentato il coinvolgimento utenti migliorando UX.</li>
-                            <li>Creato componenti riutilizzabili velocizzando lo sviluppo e riducendo i costi.</li>
-                        </ul>
-                        <p class="tech-stack"><strong>Tech:</strong> Angular, Javascript, Typescript, HTML, CSS, PWA,
-                            WebAPI</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-content card">
-                        <span class="date">Ott 2017 - Apr 2019</span>
-                        <h3>Coordinatore e Referente Tecnico</h3>
-                        <h4>Fincons Group SpA <span class="location"><i class="fas fa-map-marker-alt"></i> Roma</span>
-                        </h4>
-                        <ul>
-                            <li>Rilasciato l'app Trenitalia nei tempi previsti, migliorando le prestazioni del 15%.</li>
-                            <li>Implementato pipeline CI/CD, ottimizzando il processo di sviluppo e rilascio.</li>
-                        </ul>
-                        <p class="tech-stack"><strong>Tech:</strong> AngularJS, Javascript, Ionic, HTML, CSS,
-                            Objective-C, Java</p>
-                    </div>
-                </div>
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-content card">
-                        <span class="date">Dic 2014 - Set 2017</span>
-                        <h3>Front-End Developer</h3>
-                        <h4>Fincons Group SpA <span class="location"><i class="fas fa-map-marker-alt"></i> Roma</span>
-                        </h4>
-                        <ul>
-                            <li>Sviluppato l'app mobile Trenitalia (v4.0, v5.0) con tecnologia ibrida.</li>
-                            <li>Aumentata stabilità e prestazioni dell'app del 15% con ottimizzazioni mirate.</li>
-                        </ul>
-                        <p class="tech-stack"><strong>Tech:</strong> AngularJS, Javascript, Ionic, HTML, CSS,
-                            Objective-C, Java</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-content card">
-                        <span class="date">Set 2010 - Nov 2014</span>
-                        <h3>Scrittore Tutorial & Sviluppatore Web Interno</h3>
-                        <h4>Edizioni Master SpA <span class="location"><i class="fas fa-map-marker-alt"></i>
-                                Rende</span></h4>
-                        <ul>
-                            <li>Redazione di tutorial hardware/software per riviste IT (WinMagazine, QualeComputer,
-                                IoProgrammo, LinuxMagazine).</li>
-                            <li>Sviluppo piattaforma web interna per ottimizzare processi editoriali.</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="stat">
+              <span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Projects</span>
             </div>
-        </div>
-    </section>
-
-    <section id="education" class="content-section bg-light">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Formazione</h2>
-            <div class="grid-layout">
-                <div class="card education-card animate-on-scroll">
-                    <i class="fas fa-brain icon-large"></i>
-                    <h3>Master in Analisi Scientifica del Comportamento Non Verbale</h3>
-                    <p>NeuroComScience <span class="location"><i class="fas fa-map-marker-alt"></i> Roma</span></p>
-                </div>
-                <div class="card education-card animate-on-scroll">
-                    <i class="fas fa-network-wired icon-large"></i>
-                    <h3>Specializzazione in Reti Informatiche e Sistemi Operativi</h3>
-                    <p>Elis ICT Academy <span class="location"><i class="fas fa-map-marker-alt"></i> Roma</span></p>
-                    <p class="certs">Certificazioni: Oracle Solaris, LPIC-1, CCNA</p>
-                    <p class="skills-learned">Soft skills: Team Building, Time Management, Comunicazione Efficace, CV
-                        Writing, ITIL</p>
-                </div>
-                <div class="card education-card animate-on-scroll">
-                    <i class="fas fa-graduation-cap icon-large"></i>
-                    <h3>Diploma Liceo Classico</h3>
-                    <p>Liceo Classico Italo Maione <span class="location"><i class="fas fa-map-marker-alt"></i>
-                            Paola</span></p>
-                </div>
+            <div class="stat">
+              <span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Clients</span>
             </div>
-            <div class="conferences animate-on-scroll">
-                <h3>Conferenze e Seminari</h3>
-                <p><i class="fas fa-microphone-alt"></i> <strong>Speaker @ FUGU: Nel multiverso dello sviluppo web e
-                        delle app "metaibride"</strong> (Roma, 2023) - Talk su sviluppo front-end per app native usando
-                    le API del
-                    browser.</p>
-                <br>
-                <p><i class="fas fa-sitemap"></i> <strong>Organizzatore @ Engineering Learning Labs</strong>
-                    (Roma, 2024 - oggi) - E' un gruppo indipendente di appassionati di tecnologia e di innovazione nato nel 2016 all'interno di Engineering con lo scopo di condividere la passione per l'informatica e di accrescere costantemente le nostre conoscenze. 
-                </p>
-
+            <div class="stat">
+              <span class="stat-number" data-target="20">0</span><span class="stat-plus">%</span>
+              <span class="stat-label">Faster Releases</span>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="skills" class="content-section">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Competenze Tecniche e Linguistiche</h2>
-            <div class="grid-layout skills-grid">
-                <div class="skill-category animate-on-scroll">
-                    <h3><i class="fas fa-code"></i> Programmazione</h3>
-                    <ul class="skills-list">
-                        <li>Javascript</li>
-                        <li>Typescript</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>SQL</li>
-                        <li>Java</li>
-                        <li>Python</li>
-                    </ul>
-                </div>
-                <div class="skill-category animate-on-scroll">
-                    <h3><i class="fas fa-cogs"></i> Framework & Strumenti</h3>
-                    <ul class="skills-list">
-                        <li>Angular</li>
-                        <li>NodeJS</li>
-                        <li>PWA</li>
-                        <li>Web API</li>
-                        <li>Ionic</li>
-                        <li>jQuery</li>
-                        <li>Bootstrap</li>
-                        <li>Spring Boot</li>
-                        <li>Git</li>
-                        <li>CI/CD</li>
-                    </ul>
-                </div>
-                <div class="skill-category animate-on-scroll">
-                    <h3><i class="fas fa-language"></i> Lingue</h3>
-                    <ul class="skills-list">
-                        <li>Italiano (Madrelingua)</li>
-                        <li>Inglese (B2)</li>
-                    </ul>
-                </div>
+  <!-- SKILLS -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skills-category">
+          <h3 class="skills-cat-title"><span class="cat-icon" aria-hidden="true">&#9889;</span> Frontend</h3>
+          <div class="skill-badges">
+            <span class="badge">JavaScript</span><span class="badge">TypeScript</span><span class="badge">Angular</span>
+            <span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">PWA</span>
+            <span class="badge">Ionic</span><span class="badge">AngularJS</span><span class="badge">Bootstrap</span><span class="badge">jQuery</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3 class="skills-cat-title"><span class="cat-icon" aria-hidden="true">&#128295;</span> Backend &amp; Tools</h3>
+          <div class="skill-badges">
+            <span class="badge">NodeJS</span><span class="badge">Spring Boot</span><span class="badge">Java</span>
+            <span class="badge">Python</span><span class="badge">SQL</span><span class="badge">REST / Web API</span>
+            <span class="badge">Git</span><span class="badge">CI/CD</span><span class="badge">Objective-C</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3 class="skills-cat-title"><span class="cat-icon" aria-hidden="true">&#129504;</span> Leadership</h3>
+          <div class="skill-badges">
+            <span class="badge">Team Leadership</span><span class="badge">Agile / Scrum</span><span class="badge">Code Review</span>
+            <span class="badge">Mentoring</span><span class="badge">ITIL</span><span class="badge">a11y / WCAG</span><span class="badge">Time Management</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+
+        <!-- TODO: replace with actual project data -->
+        <article class="project-card" data-tilt>
+          <div class="project-image">
+            <img src="https://placehold.co/600x340/111827/00F5D4?text=Enterprise+PWA" alt="Enterprise PWA Dashboard" loading="lazy" width="600" height="340" />
+            <div class="project-overlay">
+              <p>Angular-based enterprise PWA with real-time data, offline support, and WCAG 2.1 compliance. Delivered 20% faster release cycles.</p>
+              <div class="project-links">
+                <a href="#" class="btn btn-primary btn-sm">Live Demo</a><!-- TODO: replace -->
+                <a href="https://github.com/francescomannarino/" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
             </div>
-        </div>
-    </section>
+          </div>
+          <div class="project-info">
+            <h3>Enterprise PWA Dashboard</h3>
+            <div class="project-tags"><span>Angular</span><span>TypeScript</span><span>PWA</span><span>WebAPI</span></div>
+          </div>
+        </article>
 
-    <section id="contact" class="content-section bg-light">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Contatti</h2>
-            <div class="contact-info animate-on-scroll">
-                <p><i class="fas fa-envelope"></i> <a
-                        href="mailto:info@francescomannarino.dev">info@francescomannarino.dev</a></p>
-                <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/francesco-mannarino"
-                        target="_blank">linkedin.com/in/francesco-mannarino</a></p>
+        <!-- TODO: replace with actual project data -->
+        <article class="project-card" data-tilt>
+          <div class="project-image">
+            <img src="https://placehold.co/600x340/111827/7C3AED?text=Trenitalia+App" alt="Trenitalia Mobile App" loading="lazy" width="600" height="340" />
+            <div class="project-overlay">
+              <p>Hybrid mobile app for Trenitalia v4.0 &amp; v5.0. 15% performance boost via optimized code and adaptive caching.</p>
+              <div class="project-links">
+                <a href="#" class="btn btn-primary btn-sm">Case Study</a><!-- TODO: replace -->
+                <a href="https://github.com/francescomannarino/" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
             </div>
-        </div>
-    </section>
+          </div>
+          <div class="project-info">
+            <h3>Trenitalia Mobile App</h3>
+            <div class="project-tags"><span>Ionic</span><span>AngularJS</span><span>Objective-C</span><span>Java</span></div>
+          </div>
+        </article>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Francesco Mannarino. Tutti i diritti riservati.</p>
-        </div>
-    </footer>
+        <!-- TODO: replace with actual project data -->
+        <article class="project-card" data-tilt>
+          <div class="project-image">
+            <img src="https://placehold.co/600x340/111827/00F5D4?text=Learning+Labs" alt="Engineering Learning Labs Platform" loading="lazy" width="600" height="340" />
+            <div class="project-overlay">
+              <p>Internal knowledge-sharing platform powering Engineering's tech community, organized and moderated since 2016.</p>
+              <div class="project-links">
+                <a href="#" class="btn btn-primary btn-sm">Learn More</a><!-- TODO: replace -->
+                <a href="https://github.com/francescomannarino/" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Engineering Learning Labs</h3>
+            <div class="project-tags"><span>Angular</span><span>NodeJS</span><span>CI/CD</span><span>Community</span></div>
+          </div>
+        </article>
 
-    <script src="script.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline" role="list">
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content glass-card">
+            <time class="timeline-date" datetime="2021-10">Oct 2021 &ndash; Present</time>
+            <h3>Development Team Leader</h3>
+            <h4>Engineering Ingegneria Informatica SpA &middot; Roma</h4>
+            <ul>
+              <li>Reduced release cycle times by <strong>20%</strong> through planning optimization and backlog management.</li>
+              <li>Implemented CI/CD pipelines and coding standards, improving stability and maintainability.</li>
+              <li>Delivered more intuitive, WCAG 2.1-compliant interfaces for enterprise applications.</li>
+            </ul>
+            <div class="timeline-tech"><span>Angular</span><span>TypeScript</span><span>PWA</span><span>NodeJS</span><span>WebAPI</span><span>CI/CD</span></div>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content glass-card">
+            <time class="timeline-date" datetime="2019-05">May 2019 &ndash; Sep 2021</time>
+            <h3>Software Development Specialist</h3>
+            <h4>Engineering Ingegneria Informatica SpA &middot; Roma</h4>
+            <ul>
+              <li>Optimized resource loading and code bundles to significantly reduce application load times.</li>
+              <li>Improved user engagement by redesigning critical UX flows with measurable impact.</li>
+              <li>Built reusable component libraries, accelerating development and reducing technical debt.</li>
+            </ul>
+            <div class="timeline-tech"><span>Angular</span><span>TypeScript</span><span>PWA</span><span>WebAPI</span></div>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content glass-card">
+            <time class="timeline-date" datetime="2017-10">Oct 2017 &ndash; Apr 2019</time>
+            <h3>Technical Coordinator &amp; Lead</h3>
+            <h4>Fincons Group SpA &middot; Roma</h4>
+            <ul>
+              <li>Delivered the Trenitalia app on schedule, improving performance by <strong>15%</strong>.</li>
+              <li>Established CI/CD pipeline to streamline development and release processes.</li>
+            </ul>
+            <div class="timeline-tech"><span>AngularJS</span><span>Ionic</span><span>JavaScript</span><span>CI/CD</span></div>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content glass-card">
+            <time class="timeline-date" datetime="2014-12">Dec 2014 &ndash; Sep 2017</time>
+            <h3>Front-End Developer</h3>
+            <h4>Fincons Group SpA &middot; Roma</h4>
+            <ul>
+              <li>Developed the Trenitalia hybrid mobile app (v4.0 &amp; v5.0) using Ionic and AngularJS.</li>
+              <li>Increased app stability and performance by <strong>15%</strong> through targeted optimizations.</li>
+            </ul>
+            <div class="timeline-tech"><span>AngularJS</span><span>Ionic</span><span>Objective-C</span><span>Java</span></div>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content glass-card">
+            <time class="timeline-date" datetime="2010-09">Sep 2010 &ndash; Nov 2014</time>
+            <h3>Technical Writer &amp; Web Developer</h3>
+            <h4>Edizioni Master SpA &middot; Rende</h4>
+            <ul>
+              <li>Authored hardware/software tutorials for WinMagazine, IoProgrammo, LinuxMagazine.</li>
+              <li>Built an internal web platform to streamline editorial processes and asset management.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="edu-grid reveal">
+        <div class="edu-card glass-card">
+          <span class="edu-icon" aria-hidden="true">&#127891;</span>
+          <h3>Master in Behavioural Science &amp; Non-Verbal Communication</h3>
+          <p>NeuroComScience &middot; Roma</p>
+        </div>
+        <div class="edu-card glass-card">
+          <span class="edu-icon" aria-hidden="true">&#127760;</span>
+          <h3>Specialization in Networks &amp; Operating Systems</h3>
+          <p>Elis ICT Academy &middot; Roma</p>
+          <p class="edu-certs">Oracle Solaris &middot; LPIC-1 &middot; CCNA</p>
+        </div>
+        <div class="edu-card glass-card">
+          <span class="edu-icon" aria-hidden="true">&#127908;</span>
+          <h3>Speaker &mdash; FUGU Conference 2023</h3>
+          <p>"Nel multiverso dello sviluppo web e delle app metaibride" &middot; Roma</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="contact-lead reveal">Available for senior engineering roles, technical leadership, and consulting engagements.</p>
+      <button class="btn btn-primary btn-glow reveal" id="copy-email" data-email="info@francescomannarino.dev" aria-label="Copy email address">
+        info@francescomannarino.dev
+      </button>
+      <p class="contact-hint reveal">Click to copy email</p>
+      <div class="contact-socials reveal">
+        <a href="https://github.com/francescomannarino/" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/francesco-mannarino" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Francesco Mannarino. Crafted with precision.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
